@@ -1,0 +1,52 @@
+// NAME             :   Lauren DeHaan
+// CLASS            :   APCS
+// LAST MODIFIED    :   16 October 2019
+// PROBLEM ID       :   Lewis 3.2/3.3
+// DESCRIPTION      :   This program determines if a given year 
+//                      is a leap year or not and ends on a user- 
+//                      inputted sentinel value.
+// SOURCES/HELP     :   Lewis Java Book
+
+import java.util.*;
+
+public class Lewis32
+{
+    public static void main (String [] args) 
+    {
+        // Signature
+        System.out.print("Lauren DeHaan\nAPCS\nLewis 3.2/3.3 Program");
+            
+        // Declares variables and scanner
+        int year;
+        Scanner scan = new Scanner(System.in);
+        
+        // Controls amount of runs based on user saying yes or n0        
+        do
+        {
+            // Asks user to input a year
+            System.out.print("\n\nEnter a year:    ");
+            year = scan.nextInt();
+        
+            // Prints error message if year is less than 1582
+            while (year < 1582)
+            {
+                  System.out.print("\nPlease enter a year that is greater than or equal to 1582:    ");
+                  year = scan.nextInt();
+            }
+            
+            // Determines if year is a leap year
+            if(( year%400==0 || ( year%4==0 && year%100!=0 )))
+            {
+                  System.out.println("\n" + year + " is a leap year.");
+            }
+            else
+            {
+                  System.out.println("\n" + year + " is not a leap year.");
+            }
+            System.out.print("\nDo you want to run this program again?(Y/N):    ");
+            
+        }while (scan.next().equals("Y")); 
+        scan.close();
+    }
+}
+               
